@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "lb"
-               BuildableName = "lb"
-               BlueprintName = "lb"
+               BlueprintIdentifier = "LyreLib"
+               BuildableName = "LyreLib"
+               BlueprintName = "LyreLib"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -89,22 +89,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "lb"
-            BuildableName = "lb"
-            BlueprintName = "lb"
-            ReferencedContainer = "container:">
-         </BuildableReference>
-      </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "sw_vers"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -112,16 +96,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "lb"
-            BuildableName = "lb"
-            BlueprintName = "lb"
+            BlueprintIdentifier = "LyreLib"
+            BuildableName = "LyreLib"
+            BlueprintName = "LyreLib"
             ReferencedContainer = "container:">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
