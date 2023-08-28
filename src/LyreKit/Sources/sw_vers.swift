@@ -2,7 +2,9 @@ import Foundation
 import LyreLib
 
 public enum sw_vers {
-	public static func run(command: sw_versCommand) async throws -> sw_versOutput? {
+	public static func run(
+		command: LyreLib.sw_vers.Command
+	) async throws -> LyreLib.sw_vers.Output? {
 		let task = Process()
 		let pipe = Pipe()
 
@@ -15,7 +17,7 @@ public enum sw_vers {
 		try task.run()
 
 		guard let outputData = try pipe.fileHandleForReading.readToEnd() else { return nil }
-		let output = sw_versOutput.parse(output: outputData, for: command)
+		let output = LyreLib.sw_vers.Output.parse(output: outputData, for: command)
 		return output
 	}
 }

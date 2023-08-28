@@ -6,10 +6,10 @@ import LyreLib
 struct sw_vers: AsyncParsableCommand {
 
 	@Flag(exclusivity: .chooseLast)
-	var flag: sw_versCommand.sw_versFlag = .none
+	var flag: LyreLib.sw_vers.Command.sw_versFlag = .none
 
 	func run() async throws {
-		let output = try await LyreKit.sw_vers.run(command: sw_versCommand(flag: flag))
+		let output = try await LyreKit.sw_vers.run(command: LyreLib.sw_vers.Command(flag: flag))
 		guard let output else {
 			print("No output")
 			return
@@ -30,4 +30,4 @@ struct sw_vers: AsyncParsableCommand {
 	}
 }
 
-extension sw_versCommand.sw_versFlag: EnumerableFlag {}
+extension LyreLib.sw_vers.Command.sw_versFlag: EnumerableFlag {}

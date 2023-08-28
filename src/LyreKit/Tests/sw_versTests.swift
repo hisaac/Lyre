@@ -6,8 +6,8 @@ import XCTest
 class sw_versTests: XCTestCase {
 	func testRun() async throws {
 		// Given
-		let command = sw_versCommand()
-		let expectedOutput = sw_versOutput(
+		let command = sw_vers.Command()
+		let expectedOutput = sw_vers.Output(
 			productName: "macOS",
 			productVersion: "13.5.1",
 			buildVersion: "22G90"
