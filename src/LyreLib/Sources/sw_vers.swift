@@ -131,11 +131,9 @@ public struct sw_vers: Executable {
 		// MARK: Private
 
 		private static func parseValue(for flag: String, from sourceLines: [String]) -> String? {
-			for line in sourceLines {
-				if line.starts(with: flag) {
-					let splitLine = line.split(separator: flag)
-					return splitLine.first?.trimmingCharacters(in: .whitespacesAndNewlines)
-				}
+			for line in sourceLines where line.starts(with: flag) {
+				let splitLine = line.split(separator: flag)
+				return splitLine.first?.trimmingCharacters(in: .whitespacesAndNewlines)
 			}
 			return nil
 		}
