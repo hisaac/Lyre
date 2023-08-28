@@ -1,6 +1,5 @@
 @testable import LyreKit
 @testable import LyreLib
-
 import XCTest
 
 class sw_versTests: XCTestCase {

@@ -10,7 +10,7 @@ struct LyreBird: AsyncParsableCommand {
 		commandName: "lb",
 		version: version,
 		subcommands: [
-			sw_vers.self
+			sw_vers.self,
 		]
 	)
 }

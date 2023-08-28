@@ -21,7 +21,7 @@ let package = Package(
 		.testTarget(
 			name: "LyreLibTests",
 			dependencies: [
-				.target(name: "LyreLib")
+				.target(name: "LyreLib"),
 			],
 			path: "src/LyreLib/Tests"
 		),
@@ -29,14 +29,14 @@ let package = Package(
 		.target(
 			name: "LyreKit",
 			dependencies: [
-				.target(name: "LyreLib")
+				.target(name: "LyreLib"),
 			],
 			path: "src/LyreKit/Sources"
 		),
 		.testTarget(
 			name: "LyreKitTests",
 			dependencies: [
-				.target(name: "LyreKit")
+				.target(name: "LyreKit"),
 			],
 			path: "src/LyreKit/Tests"
 		),
@@ -48,6 +48,6 @@ let package = Package(
 				.product(name: "ArgumentParser", package: "swift-argument-parser"),
 			],
 			path: "src/LyreBird/Sources"
-		)
+		),
 	]
 )

@@ -3,8 +3,9 @@ import Foundation
 import LyreKit
 import LyreLib
 
-struct sw_vers: AsyncParsableCommand {
+// MARK: - sw_vers
 
+struct sw_vers: AsyncParsableCommand {
 	@Flag(exclusivity: .chooseLast)
 	var flag: LyreLib.sw_vers.Command.sw_versFlag = .none
 
@@ -18,16 +19,22 @@ struct sw_vers: AsyncParsableCommand {
 
 		print("JSON")
 		let outputJSON = try JSONEncoder().encode(output)
-		guard let outputJSONString = String(data: outputJSON, encoding: .utf8) else { return }
+		guard let outputJSONString = String(data: outputJSON, encoding: .utf8) else {
+			return
+		}
 		print(outputJSONString)
 
 		print("PLIST")
 		let propertyListEncoder = PropertyListEncoder()
 		propertyListEncoder.outputFormat = .xml
 		let outputPropertyList = try propertyListEncoder.encode(output)
-		guard let outputPropertyListString = String(data: outputPropertyList, encoding: .utf8) else { return }
+		guard let outputPropertyListString = String(data: outputPropertyList, encoding: .utf8) else {
+			return
+		}
 		print(outputPropertyListString)
 	}
 }
+
+// MARK: - LyreLib.sw_vers.Command.sw_versFlag + EnumerableFlag
 
 extension LyreLib.sw_vers.Command.sw_versFlag: EnumerableFlag {}

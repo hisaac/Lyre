@@ -1,0 +1,28 @@
+{
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"sourceLanguages": [
+				"swift"
+			],
+			"name": "Debug lb",
+			"program": "${workspaceFolder:Lyre}/.build/debug/lb",
+			"args": [],
+			"cwd": "${workspaceFolder:Lyre}",
+			"preLaunchTask": "swift: Build Debug lb"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"sourceLanguages": [
+				"swift"
+			],
+			"name": "Release lb",
+			"program": "${workspaceFolder:Lyre}/.build/release/lb",
+			"args": [],
+			"cwd": "${workspaceFolder:Lyre}",
+			"preLaunchTask": "swift: Build Release lb"
+		}
+	]
+}

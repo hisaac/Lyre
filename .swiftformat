@@ -1,0 +1,25 @@
+# Exclusions
+--exclude **/.build
+--exclude Artifacts
+--exclude build
+--exclude DerivedData
+
+# See all the rule definitions at: https://github.com/nicklockwood/SwiftFormat/blob/main/Rules.md
+
+--indent tab
+
+# Opt-In Rules (disabled by default)
+
+--enable acronyms
+--enable blankLineAfterImports
+--enable blankLinesBetweenChainedFunctions
+--enable blankLinesBetweenImports
+--enable blockComments
+--enable docComments
+--enable isEmpty
+--enable markTypes
+--enable organizeDeclarations
+--enable sortSwitchCases
+--enable wrapConditionalBodies
+--enable wrapEnumCases
+--enable wrapSwitchCases

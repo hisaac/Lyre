@@ -16,7 +16,9 @@ public enum sw_vers {
 
 		try task.run()
 
-		guard let outputData = try pipe.fileHandleForReading.readToEnd() else { return nil }
+		guard let outputData = try pipe.fileHandleForReading.readToEnd() else {
+			return nil
+		}
 		let output = LyreLib.sw_vers.Output.parse(output: outputData, for: command)
 		return output
 	}
