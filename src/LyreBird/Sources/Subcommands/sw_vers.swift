@@ -1,7 +1,7 @@
 import ArgumentParser
 import Foundation
-import LyreKit
 import Lyre
+import LyreKit
 
 // MARK: - sw_vers
 

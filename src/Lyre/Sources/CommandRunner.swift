@@ -1,11 +1,13 @@
 import Foundation
 import TSCBasic
 
+// MARK: - ShellCommand
+
 public enum ShellCommand {
 	public static func run(
 		executableURL: URL,
 		arguments: [String] = [],
-		input: Data? = nil,
+		input _: Data? = nil,
 		environment: [String: String] = ProcessInfo().environment,
 		workingDirectory: URL = URL(filePath: FileManager.default.currentDirectoryPath),
 		printOutput: Bool = false
@@ -56,7 +58,9 @@ extension ProcessResult {
 	}
 
 	var error: Error? {
-		guard failed else { return nil }
+		guard failed else {
+			return nil
+		}
 		return ProcessResult.Error.nonZeroExit(self)
 	}
 }
@@ -64,9 +68,9 @@ extension ProcessResult {
 extension ProcessResult.ExitStatus {
 	var code: Int32 {
 		switch self {
-			case let .signalled(code),
-				let .terminated(code):
-				return code
+		case let .signalled(code),
+		     let .terminated(code):
+			code
 		}
 	}
 }
