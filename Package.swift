@@ -6,31 +6,18 @@ let package = Package(
 	name: "Lyre",
 	platforms: [.macOS(.v13)],
 	products: [
-		.library(name: "LyreLib", targets: ["LyreLib"]),
+		.library(name: "Lyre", targets: ["Lyre"]),
 		.library(name: "LyreKit", targets: ["LyreKit"]),
 		.executable(name: "lb", targets: ["LyreBird"]),
 	],
 	dependencies: [
 		.package(url: "https://github.com/apple/swift-argument-parser.git", exact: "1.2.3"),
+		.package(url: "https://github.com/apple/swift-tools-support-core.git", exact: "0.5.2"),
 	],
 	targets: [
-		.target(
-			name: "LyreLib",
-			path: "src/LyreLib/Sources"
-		),
-		.testTarget(
-			name: "LyreLibTests",
-			dependencies: [
-				.target(name: "LyreLib"),
-			],
-			path: "src/LyreLib/Tests"
-		),
-
+		// The lowest level library
 		.target(
 			name: "LyreKit",
-			dependencies: [
-				.target(name: "LyreLib"),
-			],
 			path: "src/LyreKit/Sources"
 		),
 		.testTarget(
@@ -41,10 +28,28 @@ let package = Package(
 			path: "src/LyreKit/Tests"
 		),
 
+		// A high level library that lets you run commands
+		.target(
+			name: "Lyre",
+			dependencies: [
+				.target(name: "LyreKit"),
+				.product(name: "TSCBasic", package: "swift-tools-support-core"),
+			],
+			path: "src/Lyre/Sources"
+		),
+		.testTarget(
+			name: "LyreTests",
+			dependencies: [
+				.target(name: "Lyre"),
+			],
+			path: "src/Lyre/Tests"
+		),
+
+		// Mostly a demo and way of testing the libraries above
 		.executableTarget(
 			name: "LyreBird",
 			dependencies: [
-				.target(name: "LyreKit"),
+				.target(name: "Lyre"),
 				.product(name: "ArgumentParser", package: "swift-argument-parser"),
 			],
 			path: "src/LyreBird/Sources"

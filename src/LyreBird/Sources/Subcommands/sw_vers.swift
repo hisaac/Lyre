@@ -1,16 +1,16 @@
 import ArgumentParser
 import Foundation
 import LyreKit
-import LyreLib
+import Lyre
 
 // MARK: - sw_vers
 
 struct sw_vers: AsyncParsableCommand {
 	@Flag(exclusivity: .chooseLast)
-	var flag: LyreLib.sw_vers.Command.sw_versFlag = .none
+	var flag: LyreKit.sw_vers.Command.sw_versFlag = .none
 
 	func run() async throws {
-		let output = try await LyreKit.sw_vers.run(command: LyreLib.sw_vers.Command(flag: flag))
+		let output = try await Lyre.sw_vers.run(command: LyreKit.sw_vers.Command(flag: flag))
 		guard let output else {
 			print("No output")
 			return
@@ -35,6 +35,6 @@ struct sw_vers: AsyncParsableCommand {
 	}
 }
 
-// MARK: - LyreLib.sw_vers.Command.sw_versFlag + EnumerableFlag
+// MARK: - LyreKit.sw_vers.Command.sw_versFlag + EnumerableFlag
 
-extension LyreLib.sw_vers.Command.sw_versFlag: EnumerableFlag {}
+extension LyreKit.sw_vers.Command.sw_versFlag: EnumerableFlag {}

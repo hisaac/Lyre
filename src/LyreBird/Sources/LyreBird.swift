@@ -1,6 +1,6 @@
 import ArgumentParser
 import Foundation
-import LyreLib
+import LyreKit
 
 @main
 struct LyreBird: AsyncParsableCommand {
